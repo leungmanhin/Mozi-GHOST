@@ -41,10 +41,10 @@
 ;;
     ;;Query: Find the common genes in GO term x and y
 ;;
-(ghost-parse "u: (find *~1 common ~gene in GO term _* and _*) ^find-common-genes('_0 '_1)")
-(ghost-parse "u: (find ~gene that annotate both _* and _*) ^find-common-genes('_0 '_1)")
-(ghost-parse "u: (what are the common genes between GO term _* and _*) ^find-common-genes('_0 '_1)")
-(ghost-parse "u: (can you [show tell] me the common genes between GO term _* and _*) ^cfind-ommon-genes('_0 '_1)")
+(ghost-parse "u: (find *~1 common ~gene in GO term _* and _*) ^find-common-genes('_0, '_1)")
+(ghost-parse "u: (find ~gene that annotate both _* and _*) ^find-common-genes('_0, '_1)")
+(ghost-parse "u: (what are the common genes between GO term _* and _*) ^find-common-genes('_0, '_1)")
+(ghost-parse "u: (can you [show tell] me the common genes between GO term _* and _*) ^cfind-ommon-genes('_0, '_1)")
 
 ;;(test-ghost "find the common genes in GO term GO:0005654 and GO:0005829")
 ;;(test-ghost "what are the common genes between GO term GO:0005654 and GO:0005829")
@@ -53,11 +53,11 @@
     ;;Find the common categories
     ;;Query: Does gene x annotate any GO terms that gene y annotates
 ;;
-(ghost-parse "u: (find *~1 common categories of ~gene _* and ~gene _*) ^common-categories('_0 '_1)")
-(ghost-parse "u: (find the categories of ~gene _* and _*)   ^common-categories('_0 '_1)")
-(ghost-parse "u: (do ~gene _* annotate any ~go that ~gene _* annotate)   ^common-categories('_0 '_1)")
+(ghost-parse "u: (find *~1 common categories of ~gene _* and ~gene _*) ^common-categories('_0, '_1)")
+(ghost-parse "u: (find the categories of ~gene _* and _*)   ^common-categories('_0, '_1)")
+(ghost-parse "u: (do ~gene _* annotate any ~go that ~gene _* annotate)   ^common-categories('_0, '_1)")
 
-(ghost-parse "u: FINDREL (find the common categories genes _* and _*) ^common-categories('_0 '_1)")
+(ghost-parse "u: FINDREL (find the common categories genes _* and _*) ^common-categories('_0, '_1)")
 
 (ghost-parse "u: (how are ~gene _* and _* are related) ^reuse(FINDREL)")
 
@@ -69,7 +69,7 @@
 ;;
     ;;Query: what GO terms in name-space NS describe gene x?
 ;;
-(ghost-parse "u: (what ~go in ~ns _* describe ~gene _*) ^find-GO-NS('_0 '_1)") 
+(ghost-parse "u: (what ~go in ~ns _* describe ~gene _*) ^find-GO-NS('_0, '_1)") 
 
 ;;(test-ghost "what GO terms in namespace biological process describe gene IL7R")
 
@@ -111,8 +111,8 @@
     ;;Query: How does gene x regulate gene y
 ;;
 
-(ghost-parse "u: ISREG (do ~gene _* regulate ~gene _*) ^is-regulate('_0 '_1)")
-(ghost-parse "u: (how do  ~gene _* regulate ~gene _*) ^is-regulate('_0 '_1)")
+(ghost-parse "u: ISREG (do ~gene _* regulate ~gene _*) ^is-regulate('_0, '_1)")
+(ghost-parse "u: (how do  ~gene _* regulate ~gene _*) ^is-regulate('_0, '_1)")
 
 ;;(test-ghost "does gene NBN regulate gene PMS2P1")
 ;;(test-ghost "how does gene NBN regulate gene PMS2P1")
@@ -122,8 +122,8 @@
     ;;Query: How does GO term x regulate GO term y
 ;;
 
-(ghost-parse "u: (do ~go _* regulate ~go _*) ^is-GO-regulate('_0 '_1)")
-(ghost-parse "u: (how do  ~go _* regulate ~go _*) ^is-GO-regulate('_0 '_1)")
+(ghost-parse "u: (do ~go _* regulate ~go _*) ^is-GO-regulate('_0, '_1)")
+(ghost-parse "u: (how do  ~go _* regulate ~go _*) ^is-GO-regulate('_0, '_1)")
 
 ;;(test-ghost "does GO term GO:0033674 regulate GO term GO:0016301")
 ;;(test-ghost "how does GO term GO:0033674 regulate GO term GO:0016301")
@@ -149,7 +149,7 @@
     ;;Query: What GO terms are connected by is-a/has-part/part-of/regulates relationship to GO term x?
     ;;Query: Find all GO terms that have is-a/has-part/part-of/regulates relationship to GO term x?
 ;;
-(ghost-parse "u: ([(find) (find all) (what)] ~go *~2 [\"connected by\" \"have\"] _* relationship [to with] ~go _*) ^find-GO-rel('_0 '_1)")
+(ghost-parse "u: ([(find) (find all) (what)] ~go *~2 [\"connected by\" \"have\"] _* relationship [to with] ~go _*) ^find-GO-rel('_0, '_1)")
 
 ;;(test-ghost "find all GO terms that have positively-regulates relationships to GO term GO:0033674")
 
@@ -190,8 +190,8 @@
       ;;Query: What is the relationship between GO term x and GO term y?
 ;;
 
-(ghost-parse "u: (what be *~1 relationship between ~go _* and ~go _*) ^find-relationship('_0 '_1)")
-(ghost-parse "u: (how be ~go _* and ~go _* related) ^find-relationship('_0 '_1)")
+(ghost-parse "u: (what be *~1 relationship between ~go _* and ~go _*) ^find-relationship('_0, '_1)")
+(ghost-parse "u: (how be ~go _* and ~go _* related) ^find-relationship('_0, '_1)")
 
 ;;(test-ghost "what is the relationship between GO term GO:0000138 and GO term GO:0005215")
 
@@ -209,8 +209,8 @@
     ;;Query: Is GO term x a GO term y?
     ;;Query: Is x a y?
 ;;
-(ghost-parse "u: (be ~go _* a ~go _*) ^find-is-rel('_0 '_1)")
-(ghost-parse "u: (be _* a _*) ^find-is-rel('_0 '_1)")
+(ghost-parse "u: (be ~go _* a ~go _*) ^find-is-rel('_0, '_1)")
+(ghost-parse "u: (be _* a _*) ^find-is-rel('_0, '_1)")
 
 ;;(test-ghost "Is GO term GO:0000278 a GO term GO:0000070")
 ;;(test-ghost "Is mitotic cell cycle a cell cycle")
