@@ -28,7 +28,7 @@
 (ghost-parse "u: (show *~3 ~gene related to _*) ^find-genes('_0)")
 
 ;;(test-ghost "Find list of genes in GO term GO:0000001")
-(ghost-parse "u: ([(do you know) (can you tell me)])")
+; (ghost-parse "u: ([(do you know) (can you tell me)])")
 
 ;;
 Find in GO name x
