@@ -31,7 +31,7 @@
 ; (ghost-parse "u: ([(do you know) (can you tell me)])")
 
 ;;
-Find in GO name x
+;; Find in GO name x
 ;;
 (ghost-parse "u: FINDGENE (find *~1 ~gene in GO name _*)  ^find-gene-in('_0)")
 (ghost-parse "u: (what ~gene [exist \"are found\"] in GO name _*)  ^find-gene-in('_0)")
@@ -50,7 +50,7 @@ Find in GO name x
 ;;(test-ghost "what are the common genes between GO term GO:0005654 and GO:0005829")
 
 ;;
-    Find the common categories
+    ;;Find the common categories
     ;;Query: Does gene x annotate any GO terms that gene y annotates
 ;;
 (ghost-parse "u: (find *~1 common categories of ~gene _* and ~gene _*) ^common-categories('_0 '_1)")
