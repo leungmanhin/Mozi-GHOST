@@ -1,0 +1,424 @@
+<H1 ALIGN=center>File <CODE>     ghost_test.scm                                                     </CODE></H1>
+<TABLE BORDER=0>
+<TR><TD ALIGN=RIGHT><B>Version:</B></TD><TD> 1.0                                                           </TD></TR>
+<TR><TD ALIGN=RIGHT><B>Created:</B></TD><TD>                                       </TD></TR>
+<TR><TD ALIGN=RIGHT><B>Modified:</B></TD><TD>                                     </TD></TR>
+<TR><TD ALIGN=RIGHT><B>Copyright:</B></TD><TD>                                           </TD></TR>
+</TABLE>
+
+
+
+<HR>
+
+<H3>Function <CODE><A NAME="intro">intro</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(intro)</CODE>
+<LI><B>Description:</B>
+ 
+  Prints text Hi, how can I help you?
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>--</CODE> : 
+    
+</UL>
+<LI><B>Return:</B>
+ ----
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-about-gene">find-about-gene</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-about-gene X)</CODE>
+<LI><B>Description:</B>
+ Finds a pattern, (MemberLink X (VariableNode "$a")) for the given gene and returns infromation about the gene's GO membership.
+
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>X</CODE> : 
+    Gene for which information is needed 
+</UL>
+<LI><B>Return:</B>
+The GeneCatagory (GO) the input geneNode belongs to
+</UL>
+
+
+
+<H3>Function <CODE><A NAME="find-genes ">find-genes </A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-genes x)</CODE>
+<LI><B>Description:</B>
+It finds all genes related to the GO with the given name (X)
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>X</CODE> : 
+    Gene Catagory (GO) name
+</UL>
+<LI><B>Return:</B>
+ All Genes related to the given GO catagory.
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-common-genes">find-common-genes</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-common-genes x y)</CODE>
+<LI><B>Description:</B>
+ 
+  Retrives common genes that exist in different GOs.
+<LI><B>Arguments:</B> 
+<UL>
+<LI><CODE>x</CODE> : 
+    GO term of the first gene catagory
+<LI><CODE>y</CODE> : 
+    GO term of the second gene catagory
+</UL>
+<LI><B>Return:</B>
+ All genes that are present in both of the given GOs binded with a MemberLink.
+</UL>
+
+
+<H3>Function <CODE><A NAME="common-categories">common-categories</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(common-categories x y)</CODE>
+<LI><B>Description:</B>
+
+  Retrives all the common gene catagories a given two gene nodes belong to.
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> : 
+    name of the first GeneNode
+<LI><CODE>y</CODE> : 
+    name of the second GeneNode
+</UL>
+<LI><B>Return:</B>
+ Common GO terms
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-GO-NS">find-GO-NS </A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-GO-NS ns x)</CODE>
+<LI><B>Description:</B>
+
+  Retrives the GO term the given gene node in the given GO namespace belongs to.
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>ns</CODE> : 
+    Namespace of the gene catagory
+<LI><CODE>x</CODE> : 
+    name of the GeneNode
+</UL>
+<LI><B>Return:</B>
+ Common GO term the gene belongs to
+</UL>
+
+
+<H3>Function <CODE><A NAME="findAboutGO">findAboutGO </A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(findAboutGO x)</CODE>
+<LI><B>Description:</B>
+
+  Retrives full information about the Gene catagory given.
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> : 
+    name of the Gene catagory
+</UL>
+<LI><B>Return:</B>
+
+ - All genes it contains
+ - All other GOs it is part of 
+ - All GOs that are part of it
+ - GOs that it positively regulates
+ - GOs that it negatively regulates 
+
+</UL>
+
+<H3>Function <CODE><A NAME="get-subgraph ">get-subgraph  </A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(get-subgraph x)</CODE>
+<LI><B>Description:</B>
+
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> : 
+   input gene
+</UL>
+<LI><B>Return:</B>
+
+</UL>
+
+<H3>Function <CODE><A NAME="find-regulates">find-regulates</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-regulates x)</CODE>
+<LI><B>Description:</B>
+Retries GOs that are regulated by the given GO.
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> : 
+  input gene
+</UL>
+<LI><B>Return:</B>
+ - GOs regulated -GOs positively regulated -GOs negatively regulated
+
+</UL>
+
+<H3>Function <CODE><A NAME="is-regulate">is-regulate</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(is-regulate x y)</CODE>
+<LI><B>Description:</B>
+Gives information on how a given gene (x) regulates any other gene (gene y).
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> : 
+    name of the first gene
+<LI><CODE>y</CODE> : 
+    name of the second gene
+</UL>
+<LI><B>Return:</B>
+ - Prints an output spacifiying how gene x regulates gene y (Positively or Negatively).
+
+</UL>
+
+<H3>Function <CODE><A NAME="is-GO-regulate">is-GO-regulate </A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(is-GO-regulate x y)</CODE>
+<LI><B>Description:</B>
+Gives information on how GO x regulates GO y.
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> : 
+    name of the first Gene catagory
+<LI><CODE>y</CODE> : 
+    name of the second Gene catagory
+</UL>
+<LI><B>Return:</B>
+ - Prints an output specifiying how GO x regulates GO y (Positively or Negatively).
+</UL>
+
+<H3>Function <CODE><A NAME="find-positive-regulates">find-positive-regulates</A></CODE></H3>
+
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-positive-regulates x)</CODE>
+<LI><B>Description:</B>
+Gives information about which GO positively regulates the given GO. (x)
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+     input gene
+</UL>
+
+<LI><B>Return:</B>
+ - Prints GO(s) that positively regulate the input.
+
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-neg-regulates">find-neg-regulates</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-neg-regulates x)</CODE>
+<LI><B>Description:</B>
+Gives information about which GO negatively regulates the given GO. (x)
+<LI><B>Arguments:</B>
+<UL>
+<LI><CODE>x</CODE> :
+ input Gene
+</UL>
+<LI><B>Return:</B>
+ - Prints GO(s) that negatively regulate the input.
+
+</UL>
+
+<H3>Function <CODE><A NAME="find-GO-rel">find-GO-rel</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-GO-rel rel x)</CODE>
+<LI><B>Description:</B>
+-----
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>rel</CODE> :
+-----
+
+<LI><CODE>x</CODE> :
+ input Gene
+</UL>
+
+<LI><B>Return:</B>
+-------
+</UL>
+
+<H3>Function <CODE><A NAME="find-ancestor">find-ancestor</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-ancestor x)</CODE>
+<LI><B>Description:</B>
+-----
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input Gene
+</UL>
+
+<LI><B>Return:</B>
+-------
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-descendant">find-descendant </A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-descendant x)</CODE>
+<LI><B>Description:</B>
+It finds all the children GOs that inherit from the input GO
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input Gene
+</UL>
+
+<LI><B>Return:</B>
+A graph with the input GO as the root node, and children GO as leaves.
+</UL>
+
+
+
+<H3>Function <CODE><A NAME="find-cellular-comp">find-cellular-comp </A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-cellular-comp x)</CODE>
+<LI><B>Description:</B>
+The input gene belongs to a GO that contains one or many other genes that also belong to different other GOs. This function finds all these GOs belonging to the GO namespace "Cellular component."
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input Gene
+</UL>
+
+<LI><B>Return:</B>
+GOs belonging to cellular component namespace. (that share a gene(s) with the input gene GO)
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-bio-process ">find-bio-process  </A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-bio-process x)</CODE>
+<LI><B>Description:</B>
+The input gene belongs to a GO that contains one or many other genes that also belong to different other GOs. This function finds all these GOs belonging to the GO namespace "Biological process."
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input gene
+</UL>
+
+<LI><B>Return:</B>
+GOs belonging to Biological process namespace. (that share a gene(s) with the input gene GO)
+</UL>
+
+<H3>Function <CODE><A NAME="find-mol-func">find-mol-func</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-mol-func x)</CODE>
+<LI><B>Description:</B>
+The input gene belongs to a GO that contains one or many other genes that also belong to different other GOs. This function finds all these GOs belonging to the GO namespace "Molecular function."
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input gene
+</UL>
+
+<LI><B>Return:</B>
+GOs belonging to molecular function namespace. (that share a gene(s) with the input gene GO)
+</UL>
+
+
+<H3>Function <CODE><A NAME="find-sub-process ">find-sub-process</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-sub-process x)</CODE>
+<LI><B>Description:</B>
+ It finds all GOs that are a part of the input GO (input gene belongs to), that belong to the GO namespace "Biological process"
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input gene
+</UL>
+
+<LI><B>Return:</B>
+Subpart GOs belonging to biological process namespace.
+</UL>
+
+
+
+<H3>Function <CODE><A NAME="find-is-rel">find-is-rel</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-is-rel x y)</CODE>
+<LI><B>Description:</B>
+It finds out if an inheritance relationship exists between the GOs the input genes belong to.
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ first input gene
+<LI><CODE>y</CODE> :
+ second input gene
+</UL>
+
+<LI><B>Return:</B>
+Yes/No
+</UL>
+
+<H3>Function <CODE><A NAME="find-gene-function">find-gene-function</A></CODE></H3>
+<UL>
+<LI><B>Prototype:</B> 
+<CODE>(find-gene-function x)</CODE>
+<LI><B>Description:</B>
+It finds the GO the input gene belongs to that is in the GO_namespace "Molecular function"
+<LI><B>Arguments:</B>
+
+<UL>
+<LI><CODE>x</CODE> :
+ input gene
+
+</UL>
+
+<LI><B>Return:</B>
+GO term in GO namespace "molcular function"
+</UL>
+
+<HR>
+
+

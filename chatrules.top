@@ -1,0 +1,81 @@
+concept: ~gene [genes gene Gene Genes geneNode "gene node" "gene nodes" "gene product"]
+
+concept: ~go [term terms "GO term" "GO terms" "go term" "go terms"]
+
+concept: ~ns [namespace name-space "name space"]
+
+concept: ~ds [dataset "data set"]
+
+topic: ~introductions keep[]
+u: ([hello hi hey] {there}) ^intro()
+
+
+topic: ~gene_related keep[]
+
+u: FINDGENE (find about gene _*1) ^find-about-gene('_0)
+u: (what do you know about gene _*1) ^find-about-gene('_0)
+u: (tell me about gene _*1) ^find-about-gene('_0)
+u: (what be gene _*1) ^find-about-gene('_0)
+
+u: FINDGENES (list {all} ~gene related to {~go} _*) ^find-genes('_0)
+u: (what ~gene be related to {~go} _*) ^find-genes('_0)
+u: (show *~2 ~gene related to {~go} _*) ^find-genes('_0)
+
+u: GENEFUNC (list *~2 molecular [function activity] of {~gene} _*) ^find-gene-function('_0)
+u: (what be *~1 molecular [function activity] of {~gene} _*) ^find-gene-function('_0)
+u: (show *~2 molecular [function activity] of {~gene} _*) ^find-gene-function('_0)
+
+u: COMMONCAT (what common ~go do {~gene} _* and {~gene} _* annotate) ^find-common-categories('_0  ,  '_1)
+u: (do {~gene} _* annotate any ~go *~1 {~gene} _* annotates) ^find-common-categories('_0  ,  '_1)
+u: (find *~1 ~go *~2 {~gene} _* and {~gene} _* annotate) ^find-common-categories('_0  ,  '_1)
+
+u: COMMONGENE (find *~1 ~gene *~1 annotate *~1 {~go} _* and {~go} _*) ^find-common-genes('_0  ,  '_1)
+u: (what ~gene annotate {both} {~go} _* and {~go} _*) ^find-common-genes('_0  ,  '_1)
+
+u: NS (what ~go in ~ns _* describe {~gene} _*) ^find-GO-NS('_0  ,  '_1)
+u: (find ~go in ~ns _* *~1 describe {~gene} _*) ^find-GO-NS('_0  ,  '_1)
+
+u: ISREG (do ~gene _* regulate ~gene _*) ^is-regulate('_0  ,  '_1)
+u: (how do  ~gene _* regulate ~gene _*) ^is-regulate('_0  ,  '_1)
+
+topic: ~go_related keep[]
+u: FINDGO (tell me about {~go} _*) ^findAboutGO('_0)
+u: ([(what do you know) (what can you tell me)] about _*) ^findAboutGO('_0)
+u: (find about {~go} _*) ^findAboutGO('_0)
+u: (what ~go be relate to {~go} _*) ^findAboutGO('_0)
+u: (show me *~1 ~go *~2 relate to _*) ^findAboutGO('_0)
+
+u: SUBGRAPH (get subgraph of _*) ^get-subgraph('_0)
+
+u: ANCESTOR ([(find all) (what be) (find)] *~1 [parents ancestors] of {~go} _*) ^find-ancestor('_0)
+
+u: DESCENDANT ([(find all) (what be) (find)] *~1 [children descendants] of {~go} _*) ^find-descendant('_0)
+
+u: GOREL ([(find) (find all) (what)] ~go *~2 ["connected by" "have"] _* relationship [to with] {~go} _*) ^find-GO-rel('_0  ,  '_1)
+
+u: REGULATES ([(find) (what be the) (show me all)] ~go *~1 regulate {~go} _*) ^find-regulates('_0)
+u: (what ~go regulate {~go} _*) ^find-regulates('_0)
+
+u: GENEREG (find *~2 ~gene *~1 regulate {~go} _*) ^gene-regulate('_0)
+u: ([(show me) (what be)] ~gene *~1 regulate {~go} _*) ^gene-regulate('_0)
+
+u: POSREG ([(find) (what be the) (show me all)] ~go *~1 positively regulate {~go} _*) ^find-positive-regulates('_0)
+u: ([(show me) (what)] ~gene *~1 positively regulate {~go} _*) ^find-positive-regulates('_0)
+
+u: NEGREG ([(find) (what be the) (show me all)] ~go *~1 negatively regulate {~go} _*) ^find-neg-regulates('_0)
+u: ([(show me) (what)] ~gene *~1 regulate {~go} _*) ^find-neg-regulates('_0)
+
+u: FINDREL (what be *~1 relationship between {~go} _* and {~go} _*) ^find-relationship('_0  ,  '_1)
+u: (how be {~go} _* and {~go} _* relate) ^find-relationship('_0  ,  '_1)
+u: CELLCOMP (where do {~go} _* *~2 {~ns} ["biological process" "molecular function"] take place) ^find-cellular-comp('_0)
+u: (what cellular component {~go} be connected to _* by ~gene) ^find-cellular-comp('_0)
+u: (find cellular component ["connected to" "related"] to _* by ~gene) ^find-cellular-comp('_0)
+
+u: BIOPROC (what biological process take place *~1 cellular component {~go} _*) ^find-bio-process('_0)
+u: (what biological process take place in _*) ^find-bio-process('_0)
+u: (what biological process ~go be ["connected to" "related"] *~1 _* by ~gene)  ^find-bio-process('_0)
+
+u: SUBPROC (what ~go be part *~1 biological process _*)  ^find-sub-process('_0)
+u: (show *~2 {biological} process *~2 part of biological process _*) ^find-sub-process('_0)
+
+u: ISREL (be {~go} _* [a an] {~go} _*) ^find-is-rel('_0  ,  '_1)
