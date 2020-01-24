@@ -51,6 +51,7 @@
             graph-nodes
             graph-edges
             make-result
+            json-build
             result-text
             result-graph))
 
