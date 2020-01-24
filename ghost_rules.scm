@@ -44,7 +44,7 @@
 (ghost-parse "u: (find *~1 common ~gene in GO term _* and _*) ^find-common-genes('_0, '_1)")
 (ghost-parse "u: (find ~gene that annotate both _* and _*) ^find-common-genes('_0, '_1)")
 (ghost-parse "u: (what are the common genes between GO term _* and _*) ^find-common-genes('_0, '_1)")
-(ghost-parse "u: (can you [show tell] me the common genes between GO term _* and _*) ^cfind-ommon-genes('_0, '_1)")
+(ghost-parse "u: (can you [show tell] me the common genes between GO term _* and _*) ^find-common-genes('_0, '_1)")
 
 ;;(test-ghost "find the common genes in GO term GO:0005654 and GO:0005829")
 ;;(test-ghost "what are the common genes between GO term GO:0005654 and GO:0005829")
